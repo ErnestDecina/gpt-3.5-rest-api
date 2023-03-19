@@ -10,6 +10,8 @@
 
 // Dependencies
 import { app } from "./server";
+import { openai } from "./utils/gpt";
 
 // Start Express Server
+openai;
 app;

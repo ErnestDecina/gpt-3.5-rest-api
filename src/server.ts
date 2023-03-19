@@ -11,14 +11,16 @@
 // Dependencies
 import express, { Express, Request, Response } from 'express';
 import { api_port } from './config/config';
+import bodyParser = require("body-parser");
 
 // Routes
 import { invalidRoute } from './routes/invalidRoute';
-import { apiRoute } from './routes/api/api';
+import { apiRoute } from './routes/api';
 
 // Create Express application
 const app: Express = express();
 
+app.use(bodyParser.json());
 app.use('/api', apiRoute);
 app.use('/', invalidRoute);
 

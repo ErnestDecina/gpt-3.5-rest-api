@@ -9,7 +9,7 @@
 import { Request, Response } from "express";
 
 async function getApi(req: Request, res: Response) {
-   res.send("<p>Invalid API Route</p>");
+    res.send("<p>Invalid API Route</p>");
 }
 
 export {
