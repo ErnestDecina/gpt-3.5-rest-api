@@ -1,0 +1,13 @@
+{
+  "name": "gpt-3.5-turbo-api",
+  "version": "1.0.0",
+  "description": "A REST API that allows use of gpt-3.5-turbo",
+  "repository": {},
+
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node src/index.ts"
+  },
+  "author": "Ernest John Decina",
+  "license": "MIT"
+}
