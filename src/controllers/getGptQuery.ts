@@ -6,30 +6,24 @@
 * Author: Ernest John Decina
 */
 
-import { Request, response, Response } from "express";
-import { CreateChatCompletionResponseChoicesInner } from "openai";
+import { Request, Response } from "express";
 import { gptQuery } from "../utils/gpt";
+import { CreateChatCompletionResponseChoicesInner } from "openai";
 
 async function getGptQuery(req: Request, res: Response) {
-    /**
-     * 
-     * JSON FORMAT
-     * {
-     *  query: "Hi"
-     * }
-     * 
-     */
-
-    // Generate GPT3.5-turbo Response
-    var gptResponse: string = await gptQuery(req.body.query) as string;
-    
-    var responseJson: object = {
-                                    "query": req.body.query,
-                                    "response": gptResponse
+    var gptResponse: CreateChatCompletionResponseChoicesInner[] = await gptQuery(req.body.query);
+    const responseJson: object = {
+                                    "user": {
+                                                "query": req.body.query,
+                                            },
+                                    "assistant": {
+                                                "response": gptResponse[0].message?.content
+                                            },
                                 };
 
+    // Send result to client
     res.json(responseJson);
-}
+} 
 
 export {
     getGptQuery

@@ -20,27 +20,25 @@ const configuration: Configuration = new Configuration({
 // Setup OpenAIApi
 const openai: OpenAIApi = new OpenAIApi(configuration);
 
+console.log("OpenAIApi is active");
+
 /**
  * 
  * Query Function
  * 
  */
 // Query OpenAIapi
-async function gptQuery(userQuery: string) {
-    try {
-        const completion: AxiosResponse<CreateChatCompletionResponse, any> = await openai.createChatCompletion({
-            model: "gpt-3.5-turbo",
-            messages: [{
-                "role": "user",
-                "content": userQuery
-            }]
-        });
-        
-        var gptResponse: string = completion.data.choices[0].message?.content ?? "";
-        return gptResponse;
-    } catch {
-        console.log("Error");
-    };
+async function gptQuery(userQuery: string): Promise<CreateChatCompletionResponseChoicesInner[]> {
+    const completion: AxiosResponse<CreateChatCompletionResponse, any> = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{
+            "role": "user",
+            "content": userQuery
+        }]
+    });
+    
+    var gptResponse: CreateChatCompletionResponseChoicesInner[] = completion.data.choices ?? [];
+    return gptResponse;
 } // End function query()
 
 export {
