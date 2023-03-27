@@ -10,7 +10,7 @@
 
 // Dependencies
 import { app } from "./server";
-import { openai } from "./utils/gpt";
+import { openai } from "./middleware/gpt";
 
 // Start Express Server
 openai;

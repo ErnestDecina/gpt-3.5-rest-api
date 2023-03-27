@@ -10,7 +10,7 @@
 
 // Dependencies
 import express, { Express, Request, Response } from 'express';
-import { api_port } from './config/config';
+import { api_port } from './config/server.config';
 import bodyParser = require("body-parser");
 
 // Routes

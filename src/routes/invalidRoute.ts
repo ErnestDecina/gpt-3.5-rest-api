@@ -10,7 +10,7 @@
 import { Router } from 'express';
 
 // Controller
-import { getInvalidRoute } from '../controllers/getInvalidRoute';
+import { getInvalidRoute } from '../controllers/invalidRoute';
 
 const invalidRoute: Router = Router();
 

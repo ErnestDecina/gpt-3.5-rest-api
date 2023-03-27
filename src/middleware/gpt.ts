@@ -1,6 +1,6 @@
 /**
  * 
- * getInvalidRoute.ts
+ * gpt.ts
  * desc:
  * 
  * Author: Ernest John Decina
@@ -9,7 +9,7 @@
 // Dependencies
 import { AxiosResponse } from "axios";
 import { Configuration, CreateChatCompletionResponse, CreateChatCompletionResponseChoicesInner, OpenAIApi } from "openai";  
-import { openai_api_key, openai_organisation_key } from "../config/config";
+import { openai_api_key, openai_organisation_key } from "../config/gpt_api.config";
 
 // Setup OpenAIApi Configuration
 const configuration: Configuration = new Configuration({  

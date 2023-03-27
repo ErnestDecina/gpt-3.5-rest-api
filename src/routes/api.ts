@@ -10,13 +10,13 @@
 import { Router } from 'express';
 
 // Controllers
-import { getApi } from '../controllers/getApi';
-import { getGptQuery } from '../controllers/getGptQuery';
+import { getInvalidApiRoute } from '../controllers/invalidApiRoute';
+import { postGptQuery } from '../controllers/query';
 
 const apiRoute: Router = Router();
 
-apiRoute.post('/', getApi);
-apiRoute.post('/gpt/query', getGptQuery);
+apiRoute.post('/', getInvalidApiRoute);
+apiRoute.post('/gpt/query', postGptQuery);
 
 export {
     apiRoute
