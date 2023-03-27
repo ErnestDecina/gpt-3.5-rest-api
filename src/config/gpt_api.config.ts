@@ -1,6 +1,6 @@
 /**
  * 
- * config.js
+ * gpt_api.config.js
  * desc:
  * 
  * 

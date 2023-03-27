@@ -32,7 +32,22 @@ class queryResponseJson {
                 "assistant": {
                     "response": this.assistant_response
                 }
-            }
+            },
+        }
+    } // End createJson
+} // End class queryJson
+
+class jwtQueryResponseJson {
+    token: string 
+
+    constructor(token: string) {
+        this.token = token
+    } // End constructor
+
+    createJson(): object {
+
+        return {
+            "token": null
         }
     } // End createJson
 } // End class queryJson
