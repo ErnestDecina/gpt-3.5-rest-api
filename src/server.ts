@@ -9,7 +9,8 @@
  */
 
 // Dependencies
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
+import cors from 'cors';
 import { api_port } from './config/server.config';
 import bodyParser = require("body-parser");
 
@@ -17,8 +18,15 @@ import bodyParser = require("body-parser");
 import { invalidRoute } from './routes/invalidRoute';
 import { apiRoute } from './routes/api';
 
+// Cors setup
+var http_node_cors: cors.CorsOptions = {
+    origin: "*",
+    methods: "GET,PUT,POST,DELETE"
+}
+
 // Create Express application
 const app: Express = express();
+app.use(cors(http_node_cors));
 app.use(bodyParser.json());
 
 // Routes

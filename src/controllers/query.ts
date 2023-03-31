@@ -14,6 +14,8 @@ import { jwtSign } from "../middleware/authentication";
 
 
 async function postGptQuery(req: Request, res: Response) {
+    console.log(req.body)
+
     var gptResponse: CreateChatCompletionResponseChoicesInner[] = await gptQuery(req.body.query);
 
     const response: queryResponseJson = new queryResponseJson(
