@@ -17,8 +17,8 @@ import { test } from '../controllers/test';
 const apiRoute: Router = Router();
 
 apiRoute.post('/', getInvalidApiRoute);
-apiRoute.post('/gpt/test', test);
-// apiRoute.post('/gpt/query', postGptQuery);
+// apiRoute.post('/gpt/test', test);
+apiRoute.post('/gpt/query', postGptQuery);
 
 export {
     apiRoute
