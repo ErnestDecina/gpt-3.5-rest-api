@@ -29,7 +29,7 @@ function createExpressApp(): express.Express {
 
     // Create Express application
     const app: Express = express();
-    app.use(cors(http_node_cors));
+    // app.use(cors(http_node_cors));
     app.use(bodyParser.json());
 
     // Routes
