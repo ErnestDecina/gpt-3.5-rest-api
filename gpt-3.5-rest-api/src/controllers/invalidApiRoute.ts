@@ -9,7 +9,8 @@
 import { Request, Response } from "express";
 
 async function getInvalidApiRoute(req: Request, res: Response) {
-    res.send("<p>Invalid API Route</p>");
+    res.statusCode = 400;
+    res.send("<p>Invalid Route</p>");
 }
 
 export {
