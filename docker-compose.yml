@@ -1,13 +1,6 @@
 version: '3.8'
 
 services:
-  gpt-3.5-rest-api:
-    image: ernestdecina/gpt-3.5-rest-api
-    build: 
-      context: ./gpt-3.5-rest-api
-    ports:
-      - 3000
-  
   nginx:
     image: nginx:latest
     volumes:
@@ -18,3 +11,13 @@ services:
     ports:
       - 443:443
       - 80:80
+
+  gpt-3.5-rest-api:
+    image: ernestdecina/gpt-3.5-rest-api
+    build: 
+      context: ./gpt-3.5-rest-api
+    ports:
+      - 3000
+    deploy:
+      mode: replicated
+      replicas: 1
