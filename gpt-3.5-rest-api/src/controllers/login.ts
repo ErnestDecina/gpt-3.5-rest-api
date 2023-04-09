@@ -6,11 +6,15 @@
 * Author: Ernest John Decina
 */
 import { Request, Response } from "express";
+import { verifyGoogleIdToken } from "../utils/googleAuthentication";
 
 
 async function postLogin(req: Request, res: Response) {
+    const userGoogleIdToken: string = req.body.userGoogleIdToken
+    verifyGoogleIdToken(userGoogleIdToken);
+
     // Send result to client
-    res.json({bitch: "ass"});
+    res.json({userGoogleJWT: "ass"});
 }
 
 
