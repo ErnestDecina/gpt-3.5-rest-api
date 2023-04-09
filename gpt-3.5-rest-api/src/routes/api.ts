@@ -12,6 +12,7 @@ import { Router } from 'express';
 // Controllers
 import { getInvalidApiRoute } from '../controllers/invalidApiRoute';
 import { postGptQuery } from '../controllers/query';
+import { postLogin } from '../controllers/login';
 import { test } from '../controllers/test';
 
 const apiRoute: Router = Router();
@@ -19,6 +20,7 @@ const apiRoute: Router = Router();
 apiRoute.post('/', getInvalidApiRoute);
 // apiRoute.post('/gpt/test', test);
 apiRoute.post('/gpt/query', postGptQuery);
+apiRoute.post('/login', postLogin);
 
 export {
     apiRoute
