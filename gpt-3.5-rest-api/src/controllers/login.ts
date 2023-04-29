@@ -10,11 +10,20 @@ import { verifyGoogleIdToken } from "../utils/googleAuthentication";
 
 
 async function postLogin(req: Request, res: Response) {
+    var reply = {}
+
     const userGoogleIdToken: string = req.body.userGoogleIdToken
-    verifyGoogleIdToken(userGoogleIdToken);
+    if( await verifyGoogleIdToken(userGoogleIdToken) ) {
+        reply = { userGoogleIdTokenValidity: true }
+    } 
+    else {
+        reply = { userGoogleIdTokenValidity: false }
+    }
+
+
 
     // Send result to client
-    res.json({userGoogleJWT: "ass"});
+    res.json(reply);
 }
 
 

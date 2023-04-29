@@ -19,7 +19,7 @@ const client = new OAuth2Client(google_authentication_client_id, google_authenti
  * 
  * @params
  */
-async function verifyGoogleIdToken(userGoogleIdToken: string) {
+async function verifyGoogleIdToken(userGoogleIdToken: string) : Promise<boolean> {
     const ticket = await client.verifyIdToken({
         idToken: userGoogleIdToken,
         audience: google_authentication_client_id
@@ -27,7 +27,18 @@ async function verifyGoogleIdToken(userGoogleIdToken: string) {
 
     const payload = ticket.getPayload()! || null;
     const userid = payload['sub'];
+
+    
     console.log(payload);
+
+
+    if( payload.email == "ernestjohn007@gmail.com" ) {
+        return true 
+    }
+    else {
+        return false
+    }
+
 } // End function verifyGoogleIdToken
 
 export {
